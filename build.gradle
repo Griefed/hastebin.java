@@ -30,6 +30,15 @@ test {
     useJUnitPlatform()
 }
 
+javadoc {
+    classpath = sourceSets.main.runtimeClasspath
+}
+
+java {
+    withSourcesJar()
+    withJavadocJar()
+}
+
 jar {
     duplicatesStrategy = DuplicatesStrategy.EXCLUDE
 
