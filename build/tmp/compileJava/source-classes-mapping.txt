@@ -1,0 +1,4 @@
+de/griefed/hastebin/HasteBin.java
+ de.griefed.hastebin.HasteBin
+de/griefed/hastebin/Main.java
+ de.griefed.hastebin.Main

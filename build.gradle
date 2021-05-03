@@ -1,0 +1,50 @@
+import java.text.SimpleDateFormat
+
+plugins {
+    id 'java'
+    id 'idea'
+}
+
+group 'de.griefed'
+version '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+configurations {
+    embed
+    implementation.extendsFrom(embed)
+}
+
+dependencies {
+    embed group: 'org.slf4j',                   name: 'slf4j-log4j12',      version: '2.0.0-alpha1'
+    embed group: 'org.apache.logging.log4j',    name: 'log4j-slf4j-impl',   version: '2.14.1'
+    embed group: 'commons-io',                  name: 'commons-io',         version: '2.8.0'
+
+    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.7.0'
+    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.7.0'
+}
+
+test {
+    useJUnitPlatform()
+}
+
+jar {
+    duplicatesStrategy = DuplicatesStrategy.EXCLUDE
+
+    from {
+        configurations.embed.findAll { it.name.endsWith('jar') }.collect { zipTree(it) }
+    }
+
+    manifest {
+        attributes(
+                'Main-Class'     : 'de.griefed.hastebin.Main',
+                'Built-By'       : System.properties['user.name'],
+                'Build-Timestamp': new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSSZ").format(new Date()),
+                'Created-By'     : "Gradle ${gradle.gradleVersion}",
+                'Build-Jdk'      : "${System.properties['java.version']} (${System.properties['java.vendor']} ${System.properties['java.vm.version']})",
+                'Build-OS'       : "${System.properties['os.name']} ${System.properties['os.arch']} ${System.properties['os.version']}",
+        )
+    }
+}
