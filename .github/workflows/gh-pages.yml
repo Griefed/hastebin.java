@@ -3,7 +3,7 @@ name: Deploy javadocs to GitHub pages
 on:
   push:
     branches:
-      - main
+      - master
   workflow_dispatch:
 
 jobs:
