@@ -20,7 +20,7 @@ Gradle Test:
     - echo "**** Allowing execution of gradlew ****"
     - chmod +x gradlew
     - echo "**** Ensure clean environment ****"
-    - ./gradlew about
+    - ./gradlew clean
   script:
     - echo "**** Building hastebin-java ****"
     - ./gradlew build --info
