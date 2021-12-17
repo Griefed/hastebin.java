@@ -7,7 +7,6 @@
   "gradle-lite": {
     "enabled": true
   },
-  "prConcurrentLimit": 5,
   "labels": ["dependencies"],
   "assignees": ["Griefed"]
 }
