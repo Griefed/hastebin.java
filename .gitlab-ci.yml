@@ -2,6 +2,14 @@ stages:
   - docs
   - gradle
 
+workflow:
+  rules:
+    - if: '$CI_MERGE_REQUEST_EVENT_TYPE == "detached"'
+      when: never
+    - if: '$CI_PIPELINE_SOURCE == "merge_request_event"'
+      when: never
+    - when: always
+
 Gradle Test:
   image: griefed/baseimage-ubuntu-jdk-8:2.0.11
   stage: gradle
