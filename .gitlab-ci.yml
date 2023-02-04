@@ -11,7 +11,7 @@ workflow:
     - when: always
 
 Gradle Test:
-  image: griefed/baseimage-ubuntu-jdk-8:2.0.17
+  image: griefed/baseimage-ubuntu-jdk-8:2.0.18
   stage: gradle
   services:
     - name: griefed/gitlab-ci-cd:2.2.5
@@ -40,7 +40,7 @@ Gradle Test:
 
 
 pages:
-  image: griefed/baseimage-ubuntu-jdk-8:2.0.17
+  image: griefed/baseimage-ubuntu-jdk-8:2.0.18
   stage: docs
   services:
     - name: griefed/gitlab-ci-cd:2.2.5
