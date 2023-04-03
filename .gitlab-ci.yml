@@ -10,12 +10,13 @@ workflow:
       when: never
     - when: always
 
+image: griefed/baseimage-ubuntu-jdk-8:2.0.18
+services:
+  - name: griefed/gitlab-ci-cd:2.2.9
+    alias: docker
+
 Gradle Test:
-  image: griefed/baseimage-ubuntu-jdk-8:2.0.18
   stage: gradle
-  services:
-    - name: griefed/gitlab-ci-cd:2.2.7
-      alias: docker
   variables:
     project_name: $CI_PROJECT_NAME
     SEMANTIC_RELEASE_PACKAGE: $CI_PROJECT_NAME
@@ -40,11 +41,7 @@ Gradle Test:
 
 
 pages:
-  image: griefed/baseimage-ubuntu-jdk-8:2.0.18
   stage: docs
-  services:
-    - name: griefed/gitlab-ci-cd:2.2.7
-      alias: docker
   variables:
     project_name: $CI_PROJECT_NAME
     SEMANTIC_RELEASE_PACKAGE: $CI_PROJECT_NAME
