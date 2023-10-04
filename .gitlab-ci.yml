@@ -13,7 +13,7 @@ workflow:
 image: docker.griefed.dev/griefed/baseimage-ubuntu-jdk-8:2.0.24
 
 services:
-  - name: docker.griefed.dev/griefed/gitlab-ci-cd:2.2.13
+  - name: docker.griefed.dev/griefed/gitlab-ci-cd:2.2.15
     alias: docker
 
 Gradle Test:
